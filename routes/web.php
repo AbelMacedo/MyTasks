@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TasksController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,9 @@ Route::post('/users', [UsersController::class, 'store'])->name('users.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::post('/tasks', [TasksController::class, 'store'])->name('tasks.store');
+    Route::post('/tasks/completed', [TasksController::class, 'completed'])->name('tasks.completed');
 });
