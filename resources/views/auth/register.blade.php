@@ -27,23 +27,20 @@
                             </div>
                             <form action="{{ route('users.store') }}" method="post">
                                 @csrf
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="name" class="form-label fw-semibold">Nombre</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
-                                            <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="Juan Miguel" required>
-                                        </div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label fw-semibold">Nombre</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                                        <input type="text" name="name" id="name" class="form-control"
+                                            placeholder="Juan Miguel" required>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="surnames" class="form-label fw-semibold">Apellidos</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-light"><i
-                                                    class="bi bi-person-badge"></i></span>
-                                            <input type="text" name="surnames" id="surnames" class="form-control"
-                                                placeholder="Pérez García" required>
-                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="surnames" class="form-label fw-semibold">Apellidos</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="bi bi-person-badge"></i></span>
+                                        <input type="text" name="surnames" id="surnames" class="form-control"
+                                            placeholder="Pérez García" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -54,23 +51,21 @@
                                             placeholder="ejemplo@gmail.com" required>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="password" class="form-label fw-semibold">Contraseña</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-light"><i class="bi bi-shield-lock"></i></span>
-                                            <input type="password" name="password" id="password" class="form-control"
-                                                placeholder="********" required>
-                                        </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label fw-semibold">Contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="bi bi-shield-lock"></i></span>
+                                        <input type="password" name="password" id="password" class="form-control"
+                                            placeholder="********" required>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="password_confirmation" class="form-label fw-semibold">Confirmar</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-light"><i
-                                                    class="bi bi-shield-check"></i></span>
-                                            <input type="password" name="password_confirmation" id="password_confirmation"
-                                                class="form-control" placeholder="********" required>
-                                        </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password_confirmation" class="form-label fw-semibold">Confirmar
+                                        contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="bi bi-shield-check"></i></span>
+                                        <input type="password" name="password_confirmation" id="password_confirmation"
+                                            class="form-control" placeholder="********" required>
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 mt-4">

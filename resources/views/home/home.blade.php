@@ -1,53 +1,94 @@
 @extends('components.layouts.app')
 @section('title', 'Home')
 @section('css')
-
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endsection
 @section('content')
     <div class="container-fluid">
-        <h1>Bienvenido {{ Auth::user()->name }} {{ Auth::user()->surnames }}</h1>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">Nueva tarea</button>
-        <h1>Tareas pendientes</h1>
-        <div class="row">
-            @foreach ($tasks as $task)
-                @if ($task->completed == 'no')
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="text-center">{{ $task->title }}</h3>
-                                <p>{{ $task->priority }}</p>
-                            </div>
-                            <div class="card-body">
-                                @if ($task->due_date)
-                                    <h4>{{ $task->due_date }}</h4>
-                                @else
-                                    <h4>Sin fecha limite</h4>
-                                @endif
-                                <p>{{ $task->description }}</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="{{ route('task.edit', $task->id) }}" class="btn btn-warning">Editar</a>
-                                <form action="{{ route('task.destroy', $task->id) }}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="confirm('¿Estas seguro de eliminar esta tarea?')">Eliminar</button>
-                                </form>
-                                <form action="{{ route('tasks.completed', $task->id) }}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success"
-                                        onclick="confirm('¿Estas seguro de marcar la tarea como completada?')">Completada</button>
-                                </form>
+        <div class="main-content">
+            <div class="welcome-section">
+                <div class="row align-items-center gy-3">
+                    <div class="col-12 col-md-8">
+                        <h1 class="h3 h1-md mb-0">
+                            <strong>¡Bienvenid@ de nuevo, {{ Auth::user()->name }}! 👋</strong>
+                        </h1>
+                    </div>
+                    <div class="col-12 col-md-4 d-flex justify-content-md-end">
+                        <button type="button" class="btn btn-success w-100 w-md-auto" data-bs-toggle="modal"
+                            data-bs-target="#taskModal">
+                            Nueva tarea <i class="bi bi-journal-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="section-header">
+                <h3>Tareas pendientes</h3>
+                <span class="section-badge">
+                    @if ($tasks->count() == 1)
+                        {{ $tasks->count() }} tarea
+                    @else
+                        {{ $tasks->count() }} tareas
+                    @endif
+                </span>
+            </div>
+            <div class="row g-4">
+                @foreach ($tasks as $task)
+                    @if ($task->completed === 'no')
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card task-card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h4 class="mb-1 fw-bold">{{ $task->title }}</h4>
+                                        <span class="badge bg-secondary">{{ ucfirst($task->priority) }}</span>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-light dropdown-toggle-no-arrow"
+                                            data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('task.edit', $task->id) }}">
+                                                    <i class="bi bi-pencil me-2"></i> Editar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('task.destroy', $task->id) }}" method="POST">
+                                                    @csrf
+                                                    <button class="dropdown-item text-danger"
+                                                        onclick="return confirm('¿Eliminar tarea?')">
+                                                        <i class="bi bi-trash me-2"></i> Eliminar
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted small mb-2">
+                                        <i class="bi bi-calendar-event me-1"></i>
+                                        {{ $task->due_date ?? 'Sin fecha límite' }}
+                                    </p>
+                                    <p class="mb-0 text-truncate-3">
+                                        {{ $task->description }}
+                                    </p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0">
+                                    <form action="{{ route('tasks.completed', $task->id) }}" method="POST">
+                                        @csrf
+                                        <button class="btn btn-success w-100">
+                                            <i class="bi bi-check-circle me-1"></i> Completar
+                                        </button>
+                                    </form>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            </div>
         </div>
-
-        <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <button type="submit">Cerrar sesión</button>
-        </form>
     </div>
 @endsection
 @section('js')
