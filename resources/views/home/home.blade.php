@@ -10,7 +10,7 @@
         <h1>Tareas pendientes</h1>
         <div class="row">
             @foreach ($tasks as $task)
-                @if ($task->completed == "no")
+                @if ($task->completed == 'no')
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-header">
@@ -26,12 +26,13 @@
                                 <p>{{ $task->description }}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-warning">Editar</a>
-                                <form action="" method="post">
+                                <a href="{{ route('task.edit', $task->id) }}" class="btn btn-warning">Editar</a>
+                                <form action="{{ route('task.destroy', $task->id) }}" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="confirm('¿Estas seguro de eliminar esta tarea?')">Eliminar</button>
                                 </form>
-                                <form action="{{ route('tasks.completed') }}" method="post">
+                                <form action="{{ route('tasks.completed', $task->id) }}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-success"
                                         onclick="confirm('¿Estas seguro de marcar la tarea como completada?')">Completada</button>

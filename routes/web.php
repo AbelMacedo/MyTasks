@@ -18,5 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::post('/tasks', [TasksController::class, 'store'])->name('tasks.store');
-    Route::post('/tasks/completed', [TasksController::class, 'completed'])->name('tasks.completed');
+    Route::get('/tasks/edit/{id}', [TasksController::class, 'edit'])->name('task.edit');
+    Route::post('/tasks/update/{id}', [TasksController::class, 'update'])->name('task.update');
+    Route::post('/tasks/destroy/{id}', [TasksController::class, 'destroy'])->name('task.destroy');
+    Route::post('/tasks/completed/{id}', [TasksController::class, 'completed'])->name('tasks.completed');
 });
