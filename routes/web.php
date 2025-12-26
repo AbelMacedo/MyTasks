@@ -22,4 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/tasks/update/{id}', [TasksController::class, 'update'])->name('task.update');
     Route::post('/tasks/destroy/{id}', [TasksController::class, 'destroy'])->name('task.destroy');
     Route::post('/tasks/completed/{id}', [TasksController::class, 'completed'])->name('tasks.completed');
+    Route::post('/tasks/incomplete/{id}', [TasksController::class, 'incomplete'])->name('tasks.incomplete');
+    Route::get('/tasks/completed-tasks', [TasksController::class, 'completed_tasks'])->name('tasks.completed_tasks');
 });

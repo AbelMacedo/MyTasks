@@ -69,4 +69,10 @@ class TasksController extends Controller
 
         return redirect()->back()->with('success', 'Tarea eliminada exitosamente.');
     }
+
+    public function completed_tasks()
+    {
+        $tasks = Task::where('user_id', Auth::id())->where('completed', 'yes')->get();
+        return view('tasks.completed_taks', compact('tasks'));
+    }
 }
