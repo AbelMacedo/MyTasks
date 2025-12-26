@@ -1,8 +1,8 @@
-@extends('components.layouts.app')
+@extends('layouts.app')
 @section('title', 'Home')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/task_modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/task-modal.css') }}">
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -40,7 +40,7 @@
                                     class="card task-card h-100 priority-{{ $task->priority === 'alta' ? 'high' : ($task->priority === 'media' ? 'medium' : 'low') }}">
                                     <div class="card-header d-flex justify-content-between align-items-start">
                                         <div class="flex-grow-1">
-                                            <h3 class="mb-2">{{ $task->title }}</h3>
+                                            <h3 class="mb-2" title="{{ $task->title }}">{{ $task->title }}</h3>
                                             <div>
                                                 @if ($task->priority === 'alta')
                                                     <span class="badge bg-danger">
@@ -130,5 +130,9 @@
         </div>
     </div>
 @endsection
+
+@include('components.modals.task-modal')
+
 @section('js')
+
 @endsection

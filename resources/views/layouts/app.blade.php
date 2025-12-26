@@ -14,8 +14,7 @@
 </head>
 
 <body>
-    @include('components.layouts.sidebar')
-    @include('components.modals.task_modal')
+    @include('components.navigation.sidebar')
     @yield('content')
     @yield('js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

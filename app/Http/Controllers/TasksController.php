@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskRequest;
 use App\Models\Task;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Testing\Fluent\Concerns\Has;
 
 class TasksController extends Controller
 {
@@ -73,6 +71,6 @@ class TasksController extends Controller
     public function completed_tasks()
     {
         $tasks = Task::where('user_id', Auth::id())->where('completed', 'yes')->get();
-        return view('tasks.completed_taks', compact('tasks'));
+        return view('tasks.completed-tasks', compact('tasks'));
     }
 }

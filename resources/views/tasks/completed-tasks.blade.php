@@ -1,4 +1,4 @@
-@extends('components.layouts.app')
+@extends('layouts.app')
 @section('title', 'Tareas completadas')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -34,7 +34,7 @@
                                     class="card task-card h-100 priority-{{ $task->priority === 'alta' ? 'high' : ($task->priority === 'media' ? 'medium' : 'low') }}">
                                     <div class="card-header d-flex justify-content-between align-items-start">
                                         <div class="flex-grow-1">
-                                            <h3 class="mb-2">{{ $task->title }}</h3>
+                                            <h3 class="mb-2" title="{{ $task->title }}">{{ $task->title }}</h3>
                                             <div>
                                                 @if ($task->priority === 'alta')
                                                     <span class="badge bg-danger">
@@ -70,6 +70,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
+                                        <label for=""><strong class="text-secondary">Fecha: </strong></label>
                                         <p class="text-muted small mb-2">
                                             <i class="bi bi-calendar-event me-1"></i>
                                             {{ $task->due_date ?? 'Sin fecha límite' }}

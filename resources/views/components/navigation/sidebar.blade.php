@@ -24,21 +24,13 @@
                 <i class="bi bi-check-circle-fill"></i>
                 <span>Tareas completadas</span>
             </a>
-            <a href="#" class="menu-item">
-                <i class="bi bi-calendar-event-fill"></i>
-                <span>Calendario</span>
-                <span class="menu-badge">Pronto</span>
-            </a>
         </div>
         <div class="menu-section">
             <div class="menu-section-title">Mi Cuenta</div>
-            <a href="#" class="menu-item">
+            <a href="{{ route('users.edit-profile') }}"
+                class="menu-item {{ request()->routeIs('users.edit-profile') ? 'active' : '' }}">
                 <i class="bi bi-person-fill"></i>
                 <span>Mi Perfil</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="bi bi-gear-fill"></i>
-                <span>Configuración</span>
             </a>
         </div>
     </div>

@@ -1,7 +1,7 @@
-@extends('components.layouts.app')
+@extends('layouts.app')
 @section('title', 'Editar Tarea')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/edit_task.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/form-edit.css') }}">
 @endsection
 @section('content')
     <div class="container-fluid">

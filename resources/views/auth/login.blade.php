@@ -1,5 +1,5 @@
-@extends('components.layouts.auth')
-@section('title', 'Inicio de sesión | MyTasks')
+@extends('layouts.auth')
+@section('title', 'Inicio de sesión')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">

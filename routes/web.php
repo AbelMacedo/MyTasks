@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\UsersController;
@@ -24,4 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/tasks/completed/{id}', [TasksController::class, 'completed'])->name('tasks.completed');
     Route::post('/tasks/incomplete/{id}', [TasksController::class, 'incomplete'])->name('tasks.incomplete');
     Route::get('/tasks/completed-tasks', [TasksController::class, 'completed_tasks'])->name('tasks.completed_tasks');
+
+    Route::get('/users/edit-profile', [UsersController::class, 'edit'])->name('users.edit-profile');
+    Route::post('/users/update-profile', [UsersController::class, 'update'])->name('users.update-profile');
 });

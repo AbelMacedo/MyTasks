@@ -298,3 +298,26 @@ textarea.form-control {
 .input-group:focus-within .input-group-text {
     animation: pulse 0.6s ease;
 }
+
+.header-actions {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .header-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,5 +1,5 @@
-@extends('components.layouts.auth')
-@section('title', 'Crear Cuenta | MyTasks')
+@extends('layouts.auth')
+@section('title', 'Crear Cuenta')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">

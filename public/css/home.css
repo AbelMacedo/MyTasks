@@ -187,6 +187,17 @@ body {
     font-weight: 600;
 }
 
+.task-card .card-header>.flex-grow-1 {
+    min-width: 0;
+}
+
+.task-card .card-header h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
 .task-card .badge {
     font-size: 0.7rem;
     padding: 0.35rem 0.65rem;
@@ -195,13 +206,20 @@ body {
     margin-right: 0.25rem;
 }
 
+.task-card .dropdown {
+    flex: 0 0 auto;
+    margin-left: 0.75rem;
+}
+
 .task-card .dropdown-toggle-no-arrow {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     border-radius: 8px;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.65rem;
     transition: all 0.2s;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .task-card .dropdown-toggle-no-arrow::after {
