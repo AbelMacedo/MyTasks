@@ -16,7 +16,7 @@
                     <div class="input-group">
                         <span class="input-group-text">1</span>
                         <input type="text" name="title" id="title" class="form-control"
-                            placeholder="Ej: Completar informe mensual" required>
+                            placeholder="Ej: Completar informe mensual">
                     </div>
 
                     <label for="description" class="form-label">
@@ -32,7 +32,7 @@
                     </label>
                     <div class="input-group">
                         <span class="input-group-text">3</span>
-                        <select name="priority" id="priority" class="form-control" required>
+                        <select name="priority" id="priority" class="form-control">
                             <option value="">--Seleccione una opción--</option>
                             <option value="alta">🔴 Alta</option>
                             <option value="media">🟡 Media</option>

@@ -2,13 +2,13 @@
 @section('title', 'Crear Cuenta')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
 @section('content')
     <div class="container-fluid">
-        <div class="row register-container">
-            <div class="col-md-6 d-none d-md-flex register-image">
+        <div class="row auth-container">
+            <div class="col-md-6 d-none d-md-flex auth-image">
                 <div class="text-center p-5">
                     <h1 class="display-4 fw-bold text-white">Únete a MyTasks</h1>
                     <p class="lead">Estás a un paso de organizar tu vida de manera eficiente.</p>
@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-center bg-white">
                 <div class="col-11 col-sm-9 col-md-10 col-lg-8 py-5">
-                    <div class="card card-register p-4">
+                    <div class="card card-auth p-4">
                         <div class="card-body">
                             <div class="mb-4 text-center">
                                 <h3 class="fw-bold">Crea tu cuenta</h3>
@@ -36,7 +36,7 @@
                                             <i class="bi bi-person"></i>
                                         </span>
                                         <input type="text" name="name" id="name" class="form-control"
-                                            placeholder="Juan Miguel" required autofocus>
+                                            placeholder="Juan Miguel" autofocus>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -48,7 +48,7 @@
                                             <i class="bi bi-person-badge"></i>
                                         </span>
                                         <input type="text" name="surnames" id="surnames" class="form-control"
-                                            placeholder="Pérez García" required>
+                                            placeholder="Pérez García">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -60,7 +60,7 @@
                                             <i class="bi bi-envelope"></i>
                                         </span>
                                         <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="ejemplo@gmail.com" required>
+                                            placeholder="ejemplo@gmail.com">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -72,7 +72,7 @@
                                             <i class="bi bi-shield-lock"></i>
                                         </span>
                                         <input type="password" name="password" id="password" class="form-control"
-                                            placeholder="••••••••" required minlength="8">
+                                            placeholder="••••••••" minlength="8">
                                     </div>
                                     <div class="password-strength">
                                         <div class="password-strength-bar" id="strengthBar"></div>
@@ -90,14 +90,11 @@
                                             <i class="bi bi-shield-check"></i>
                                         </span>
                                         <input type="password" name="password_confirmation" id="password_confirmation"
-                                            class="form-control" placeholder="••••••••" required>
+                                            class="form-control" placeholder="••••••••">
                                     </div>
-                                    <small class="text-danger d-none" id="passwordMismatch">
-                                        <i class="bi bi-exclamation-circle me-1"></i>Las contraseñas no coinciden
-                                    </small>
                                 </div>
                                 <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-success btn-register">
+                                    <button type="submit" class="btn btn-success btn-auth">
                                         <i class="bi bi-person-plus-fill me-2"></i>Registrarme ahora
                                     </button>
                                 </div>
@@ -124,7 +121,7 @@
         const password = document.getElementById('password');
         const strengthBar = document.getElementById('strengthBar');
 
-        password.addEventListener('input', function() {
+        password.addEventListener('input', function () {
             const value = this.value;
             const strength = calculatePasswordStrength(value);
 

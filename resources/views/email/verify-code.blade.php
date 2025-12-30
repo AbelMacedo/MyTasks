@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'Cambiar correo electrónico')
+@section('title', 'Codigo de verificación')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
@@ -21,42 +21,34 @@
                     <div class="card card-auth p-4">
                         <div class="card-body">
                             <div class="mb-4 text-center">
-                                <h3 class="fw-bold">Cambio de contraseña</h3>
-                                <p class="text-muted">Ingresa tu correo electrónico</p>
+                                <h3 class="fw-bold">Codigo de verificación.</h3>
+                                <p class="text-muted">Ingresa el código de verificación</p>
                             </div>
-                            <form action="{{ route('password.send_recovery_email') }}" method="post" id="registerForm">
+                            <form action="{{ route('email.validate') }}" method="post" id="registerForm">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="email" class="form-label">
-                                        <i class="bi bi-envelope-fill me-1"></i>Correo electrónico
+                                        <i class="bi bi-envelope-fill me-1"></i>Codigo de verificación
                                     </label>
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <i class="bi bi-envelope"></i>
                                         </span>
-                                        <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="ejemplo@gmail.com">
+                                        <input type="code" name="code" id="code" class="form-control" placeholder="123456">
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 mt-4">
                                     <button type="submit" class="btn btn-success btn-auth">
-                                        <i class="bi bi-send me-2"></i>Enviar email
+                                        <i class="bi bi-person-plus-fill me-2"></i>Verificar código
                                     </button>
                                 </div>
                             </form>
                             <hr class="my-4">
                             <div class="text-center">
                                 <p class="mb-0 text-muted">
-                                    @if (Auth::check())
-                                        <a href="{{ route('users.edit-profile') }}"
-                                            class="text-success fw-bold text-decoration-none">
-                                            Regresar
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-success fw-bold text-decoration-none">
-                                            Regresar
-                                        </a>
-                                    @endif
+                                    <a href="{{ route('home') }}" class="text-success fw-bold text-decoration-none">
+                                        Regresar
+                                    </a>
                                 </p>
                             </div>
                         </div>

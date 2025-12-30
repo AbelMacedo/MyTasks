@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -34,15 +35,13 @@ class UsersController extends Controller
         return view('users.edit-profile', compact('user'));
     }
 
-    public function update(UserRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
         $user = User::findOrFail(Auth::id());
 
         $user->update([
             'name' => $request->name,
             'surnames' => $request->surnames,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
         ]);
 
         return redirect()->back()->with('success', 'Perfil actualizado correctamente.');

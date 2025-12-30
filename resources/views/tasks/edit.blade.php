@@ -22,7 +22,7 @@
                     <div class="input-group">
                         <span class="input-group-text">1</span>
                         <input type="text" class="form-control" id="title" name="title" value="{{ $task->title }}"
-                            placeholder="Ej: Completar informe mensual" required>
+                            placeholder="Ej: Completar informe mensual">
                     </div>
                     <label for="description" class="form-label">
                         <i class="bi bi-text-paragraph"></i>
@@ -30,8 +30,7 @@
                     </label>
                     <div class="input-group">
                         <span class="input-group-text">2</span>
-                        <textarea class="form-control" id="description" name="description" placeholder="Describe los detalles de tu tarea..."
-                            required>{{ $task->description }}</textarea>
+                        <textarea class="form-control" id="description" name="description" placeholder="Describe los detalles de tu tarea...">{{ $task->description }}</textarea>
                     </div>
                     <label for="due_date" class="form-label">
                         <i class="bi bi-calendar-event"></i>
@@ -48,7 +47,7 @@
                     </label>
                     <div class="input-group">
                         <span class="input-group-text">4</span>
-                        <select class="form-select" id="priority" name="priority" required>
+                        <select class="form-select" id="priority" name="priority">
                             <option value="alta" {{ strtolower($task->priority) == 'alta' ? 'selected' : '' }}>🔴 Alta
                             </option>
                             <option value="media" {{ strtolower($task->priority) == 'media' ? 'selected' : '' }}>🟡

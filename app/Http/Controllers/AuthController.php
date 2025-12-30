@@ -19,6 +19,10 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
+        ], [
+            'email.required' => 'El campo correo electrónico es obligatorio.',
+            'email.email' => 'El correo electrónico no es válido.',
+            'password.required' => 'El campo contraseña es obligatorio.'
         ]);
 
         if (Auth::attempt($credentials)) {

@@ -12,12 +12,12 @@
                     Editar perfil
                 </h1>
                 <div class="d-flex gap-2 flex-wrap justify-content-end header-actions">
-                    <a href="#" class="btn btn-outline-secondary">
+                    <a href="{{ route('password.recover') }}" class="btn btn-outline-secondary">
                         <i class="bi bi-key-fill me-1"></i>
                         Cambiar contraseña
                     </a>
 
-                    <a href="#" class="btn btn-outline-secondary">
+                    <a href="{{ route('email.change') }}" class="btn btn-outline-secondary">
                         <i class="bi bi-envelope-fill me-1"></i>
                         Cambiar correo electrónico
                     </a>
