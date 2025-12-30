@@ -1,52 +1,240 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MyTasks - Gestor de Tareas con Laravel
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
 </p>
 
-## About Laravel
+<p align="center">
+  <a href="#características">Características</a> •
+  <a href="#requisitos">Requisitos</a> •
+  <a href="#instalación">Instalación</a> •
+  <a href="#uso">Uso</a> •
+  <a href="#estructura">Estructura</a> •
+  <a href="#licencia">Licencia</a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Descripción
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**MyTasks** es una aplicación web moderna de gestión de tareas construida con Laravel 12. Permite a los usuarios crear, actualizar, completar y eliminar tareas de forma sencilla e intuitiva. Incluye autenticación de usuarios, validación de correo electrónico y recuperación de contraseña.
 
-## Learning Laravel
+## Características
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+✨ **Autenticación Segura**
+- Registro e inicio de sesión de usuarios
+- Recuperación de contraseña con enlace de restablecimiento
+- Validación de correo electrónico con código de verificación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+📋 **Gestión de Tareas**
+- Crear nuevas tareas con título, descripción y fecha de vencimiento
+- Establecer prioridades (alta, media, baja)
+- Marcar tareas como completadas o incompletas
+- Editar y eliminar tareas existentes
+- Visualizar historial de tareas completadas
 
-## Laravel Sponsors
+👤 **Perfil de Usuario**
+- Editar información del perfil
+- Cambiar contraseña
+- Cambiar dirección de correo electrónico
+- Verificación segura de cambio de email
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+🎨 **Interfaz Intuitiva**
+- Diseño moderno y responsivo
+- Modal de tareas para mejora en la UX
+- Estilos personalizados con CSS
 
-### Premium Partners
+## Requisitos
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- PHP 8.2 o superior
+- Composer
+- MySQL
+- Servidor web (Apache, Nginx o Laravel Sail)
 
-## Contributing
+## Instalación
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Clonar el repositorio
 
-## Code of Conduct
+```bash
+git https://github.com/AbelMacedo/MyTasks.git
+cd MyTasks
+```
+
+### 2. Instalar dependencias
+
+```bash
+composer install
+```
+
+### 3. Configurar el archivo `.env`
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Edita el archivo `.env` con tus configuraciones:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mytasks
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=465
+MAIL_USERNAME=tu_usuario
+MAIL_PASSWORD=tu_contraseña
+MAIL_FROM_ADDRESS=noreply@mytasks.com
+```
+
+### 4. Ejecutar migraciones
+
+```bash
+php artisan migrate
+```
+
+## Uso
+
+### Iniciar el servidor
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`
+
+### Crear cuenta
+
+1. Dirígete a la página de registro
+2. Completa el formulario con tu información
+3. Verifica tu correo electrónico
+4. Inicia sesión
+
+### Gestionar tareas
+
+- **Crear**: Haz clic en "Nueva tarea" y completa el formulario
+- **Editar**: Haz clic en el icono de edición de la tarea
+- **Completar**: Haz clic en el boton de completar tarea
+- **Eliminar**: Haz clic en el icono de papelera
+- **Ver completadas**: Accede a la sección de tareas completadas
+
+## Estructura del Proyecto
+
+```
+MyTasks/
+├── app/
+│   ├── Http/Controllers/       # Controladores de la aplicación
+│   ├── Mail/                   # Clases de correo electrónico
+│   ├── Models/                 # Modelos Eloquent (Task, User)
+│   └── Providers/              # Proveedores de servicios
+├── database/
+│   ├── migrations/             # Migraciones de base de datos
+│   ├── factories/              # Factories para pruebas
+│   └── seeders/                # Semillas de datos
+├── resources/
+│   ├── views/                  # Plantillas Blade
+│   │   ├── auth/               # Vistas de autenticación
+│   │   ├── tasks/              # Vistas de gestión de tareas
+│   │   ├── users/              # Vistas de perfil de usuario
+│   │   ├── email/              # Plantillas de correo
+│   │   └── layouts/            # Layouts principales
+│   ├── css/                    # Estilos personalizados
+│   └── js/                     # Scripts de frontend
+├── routes/
+│   └── web.php                 # Rutas web
+├── config/                     # Archivos de configuración
+└── storage/                    # Archivos de aplicación y logs
+```
+
+## Modelos Principales
+
+### User
+- **Relación**: Un usuario tiene muchas tareas
+- **Atributos**: name, email, password, email_verified_at
+
+### Task
+- **Relación**: Una tarea pertenece a un usuario
+- **Atributos**: title, description, priority, due_date, completed, user_id
+
+## Endpoints Principales
+
+### Autenticación
+- `GET /` - Página de login
+- `POST /login/authenticate` - Autenticar usuario
+- `GET /users/create` - Formulario de registro
+- `POST /users` - Crear usuario
+- `POST /logout` - Cerrar sesión
+
+### Tareas
+- `POST /tasks` - Crear tarea
+- `GET /tasks/edit/{id}` - Editar tarea
+- `POST /tasks/update/{id}` - Actualizar tarea
+- `POST /tasks/destroy/{id}` - Eliminar tarea
+- `POST /tasks/completed/{id}` - Marcar como completada
+- `POST /tasks/incomplete/{id}` - Marcar como incompleta
+- `GET /tasks/completed-tasks` - Ver tareas completadas
+
+### Perfil de Usuario
+- `GET /users/edit-profile` - Editar perfil
+- `POST /users/update-profile` - Actualizar perfil
+
+### Email
+- `GET /email/change` - Cambiar correo
+- `POST /email/update` - Actualizar correo
+- `GET /email/verify` - Verificar correo
+- `POST /email/validate` - Validar código de verificación
+
+### Contraseña
+- `GET /password/recover` - Recuperar contraseña
+- `POST /password/send-recovery-email` - Enviar email de recuperación
+- `GET /password/reset/{token}` - Formulario de restablecimiento
+- `POST /password/update` - Actualizar contraseña
+
+## Tecnologías Utilizadas
+
+- **Backend**: Laravel 12, PHP 8.2
+- **Frontend**: Blade, JavaScript
+- **Base de Datos**: MySQL
+- **Autenticación**: Laravel Auth
+- **Validación**: Laravel Validation
+- **Email**: SMTP (Mailtrap)
+- **Estilos**: CSS Personalizado
+
+## Testing
+
+Ejecutar los tests:
+```bash
+php artisan test
+```
+
+## Desarrollo
+
+Para trabajar en modo desarrollo con hot reload:
+
+```bash
+composer run dev
+```
+
+Este comando ejecuta simultáneamente:
+- Servidor PHP
+- Queue listener
+- Pail (logs)
+- Vite (hot reload)
+
+## Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## Licencia
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
